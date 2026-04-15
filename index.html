@@ -508,8 +508,8 @@ async function loadJSON(filename) {
 async function initData() {
   try {
     const [mitra, produk] = await Promise.all([
-      loadJSON('mitra_rows.json'),
-      loadJSON('produk_rows.json')
+      loadJSON('/data/mitra_rows.json'),
+      loadJSON('/data/produk_rows.json')
     ]);
     mitraData = Array.isArray(mitra) ? mitra[0] : mitra;
     renderProfile();
