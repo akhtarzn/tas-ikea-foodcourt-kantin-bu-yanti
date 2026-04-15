@@ -1,0 +1,246 @@
+[
+  {
+    "id": "3ffed77f-3924-4a5d-b1c3-e79a1f82a067",
+    "name": "Superstar",
+    "price": 3000,
+    "stock": 5,
+    "category": "Snack",
+    "image_url": "./menu/jajan/superstar.png",
+    "description": "Camilan lezat superstar"
+  },
+  {
+    "id": "8d9f1bc6-1a52-48ab-9ba1-c598f8e78d35",
+    "name": "Momogi",
+    "price": 3000,
+    "stock": 5,
+    "category": "Snack",
+    "image_url": "./menu/jajan/momogi.png",
+    "description": "Kue kering momogi renyah"
+  },
+  {
+    "id": "e9ccf56b-632f-4de6-b068-4b800e727126",
+    "name": "Beng Beng",
+    "price": 3000,
+    "stock": 5,
+    "category": "Snack",
+    "image_url": "./menu/jajan/bengbeng.png",
+    "description": "Coklat wafer Beng Beng"
+  },
+  {
+    "id": "679d198b-5c14-49b7-bfd5-766b42bc3571",
+    "name": "Seblak",
+    "price": 10000,
+    "stock": 5,
+    "category": "Makanan",
+    "image_url": "./menu/makanan/edited/seblak.png",
+    "description": "Seblak pedas gurih"
+  },
+  {
+    "id": "97050469-b1cb-4992-b97e-8debcb690a0a",
+    "name": "Siomay",
+    "price": 10000,
+    "stock": 5,
+    "category": "Makanan",
+    "image_url": "./menu/makanan/edited/siomay.png",
+    "description": "Siomay bandung lezat"
+  },
+  {
+    "id": "e82c1187-6801-47e6-9fab-560635eb052a",
+    "name": "Kentang Goreng",
+    "price": 5000,
+    "stock": 5,
+    "category": "Makanan",
+    "image_url": "./menu/makanan/edited/kentang-goreng.png",
+    "description": "Kentang goreng crispy"
+  },
+  {
+    "id": "4f425f92-08e3-43e4-90a8-64d2d04c4af8",
+    "name": "Jamur Goreng",
+    "price": 5000,
+    "stock": 5,
+    "category": "Makanan",
+    "image_url": "./menu/makanan/edited/jamur-goreng.png",
+    "description": "Jamur crispy mantap"
+  },
+  {
+    "id": "5c54a966-f5a2-4d0c-a6f2-5afcc62d70e3",
+    "name": "Mie Instan",
+    "price": 7000,
+    "stock": 5,
+    "category": "Makanan",
+    "image_url": "./menu/makanan/edited/mie-instant.png",
+    "description": "Mie instan panas"
+  },
+  {
+    "id": "590420c2-f0d7-46be-8afb-d47e2eec57b1",
+    "name": "Mie Instan + Telur",
+    "price": 10000,
+    "stock": 5,
+    "category": "Makanan",
+    "image_url": "./menu/makanan/edited/mie-instant-telur.png",
+    "description": "Mie instan dengan telur"
+  },
+  {
+    "id": "a26c25e2-83b6-402a-8ebd-91bafd3b87ed",
+    "name": "Nasi Ayam Suwir",
+    "price": 10000,
+    "stock": 5,
+    "category": "Makanan",
+    "image_url": "./menu/makanan/edited/nasi-ayam-suwir.png",
+    "description": "Nasi dengan ayam suwir"
+  },
+  {
+    "id": "91d4b6b6-ad0a-47e9-989e-4835527f2116",
+    "name": "Nasi Goreng",
+    "price": 10000,
+    "stock": 5,
+    "category": "Makanan",
+    "image_url": "./menu/makanan/edited/nasi-goreng.png",
+    "description": "Nasi goreng spesial"
+  },
+  {
+    "id": "3f5551b5-99ae-4b0d-b7fa-f6d150bad07a",
+    "name": "Mie Ganas",
+    "price": 10000,
+    "stock": 5,
+    "category": "Makanan",
+    "image_url": "./menu/makanan/mie-ganas.jpg",
+    "description": "Mie ganas pedas level max"
+  },
+  {
+    "id": "72a64909-1d7d-43f3-b401-b62c30b47d9a",
+    "name": "Nutrisari Cincau",
+    "price": 5000,
+    "stock": 5,
+    "category": "Minuman",
+    "image_url": "./menu/minuman/edited/nutrisari-cincau.png",
+    "description": "Minuman cincau segar"
+  },
+  {
+    "id": "2dcfe674-8345-47b6-8822-8b06d8a20a05",
+    "name": "Bonteh Matcha Latte",
+    "price": 5000,
+    "stock": 5,
+    "category": "Minuman",
+    "image_url": "./menu/minuman/edited/Bonteh Matcha Latte.png",
+    "description": "Latte matcha creamy"
+  },
+  {
+    "id": "c24b79aa-0141-4dcd-8879-0e4d2ed1a75c",
+    "name": "Chocolatos Creamy Chocolate",
+    "price": 5000,
+    "stock": 5,
+    "category": "Minuman",
+    "image_url": "./menu/minuman/chocolatos-creamy.png",
+    "description": "Coklat creamy chocolatos"
+  },
+  {
+    "id": "07a45cbf-d65a-48bc-9389-d5c60d12cb74",
+    "name": "Chocolatos Choco",
+    "price": 5000,
+    "stock": 5,
+    "category": "Minuman",
+    "image_url": "./menu/minuman/chocolatos-choco.png",
+    "description": "Minuman coklat kental"
+  },
+  {
+    "id": "707b4bed-f8f6-4618-ae57-161b020f7cf8",
+    "name": "Chocolatos Matcha",
+    "price": 5000,
+    "stock": 5,
+    "category": "Minuman",
+    "image_url": "./menu/minuman/chocolatos-matcha.png",
+    "description": "Matcha chocolatos unik"
+  },
+  {
+    "id": "b5cde0f3-e867-41f6-b5e7-b7df51a4e79d",
+    "name": "Drink Beng Beng",
+    "price": 5000,
+    "stock": 5,
+    "category": "Minuman",
+    "image_url": "./menu/minuman/edited/Drink Beng-Beng.png",
+    "description": "Minuman rasa beng beng"
+  },
+  {
+    "id": "75a5aa21-650b-4674-889c-ca972dd0bc10",
+    "name": "Poci Teh Tarik",
+    "price": 5000,
+    "stock": 5,
+    "category": "Minuman",
+    "image_url": "./menu/minuman/poci-tehtarik.png",
+    "description": "Teh tarik poci panas"
+  },
+  {
+    "id": "7692506d-eeef-4e57-b395-7653c94552aa",
+    "name": "Marimas Jeruk",
+    "price": 3000,
+    "stock": 5,
+    "category": "Minuman",
+    "image_url": "./menu/minuman/marimas-jeruk.png",
+    "description": "Jus jeruk marimas"
+  },
+  {
+    "id": "f100cb46-7099-4b99-87a6-54f6b8643391",
+    "name": "Nutrisari Guava",
+    "price": 5000,
+    "stock": 5,
+    "category": "Minuman",
+    "image_url": "./menu/minuman/nutrisari-guava.png",
+    "description": "Jambu biji nutrisari"
+  },
+  {
+    "id": "33e5ea16-43cb-4621-8c66-ee042f43c315",
+    "name": "Nutrisari Sirsak",
+    "price": 5000,
+    "stock": 5,
+    "category": "Minuman",
+    "image_url": "./menu/minuman/edited/nutrisari-sirsak.png",
+    "description": "Sirsak nutrisari asam manis"
+  },
+  {
+    "id": "3e092601-d65b-4ad8-922e-65b67bf2c3df",
+    "name": "Prima",
+    "price": 3000,
+    "stock": 5,
+    "category": "Minuman",
+    "image_url": "./menu/minuman/prima.png",
+    "description": "Air mineral prima"
+  },
+  {
+    "id": "aecf32cc-befb-455e-9fb4-45ba698c028d",
+    "name": "Le Mineral",
+    "price": 4000,
+    "stock": 5,
+    "category": "Minuman",
+    "image_url": "./menu/minuman/lemineral.png",
+    "description": "Air mineral le mineral"
+  },
+  {
+    "id": "712cc71a-2c24-4061-b642-644c9f011ff2",
+    "name": "Good Day Cappuccino",
+    "price": 5000,
+    "stock": 5,
+    "category": "Minuman",
+    "image_url": "./menu/minuman/goodday-cappucino.png",
+    "description": "Kopi cappuccino good day"
+  },
+  {
+    "id": "d73976ef-2bc9-4638-8ea2-0de4a9f01ea8",
+    "name": "Good Day Latte",
+    "price": 5000,
+    "stock": 5,
+    "category": "Minuman",
+    "image_url": "./menu/minuman/goodday-latte.png",
+    "description": "Latte original good day"
+  },
+  {
+    "id": "e4a5cdb6-42ce-4429-842f-2574b3ca821f",
+    "name": "Torabika Creamy Latte",
+    "price": 5000,
+    "stock": 5,
+    "category": "Minuman",
+    "image_url": "./menu/minuman/edited/Torabika Creamy Latte.png",
+    "description": "Latte creamy torabika"
+  }
+]
+

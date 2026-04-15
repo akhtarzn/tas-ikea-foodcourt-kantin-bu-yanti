@@ -1,0 +1,131 @@
+/* Kantin Online - Elegant Fresh Theme */
+/* Fresh colors: Mint #10B981, Coral #F87171, Cream #FEF3C7, Teal #0EA5E9 */
+
+:root {
+  --primary-mint: #10B981;
+  --primary-coral: #F87171;
+  --accent-cream: #FEF3C7;
+  --accent-teal: #0EA5E9;
+  --bg-cream: #FFF8E7;
+  --card-bg: rgba(255, 255, 255, 0.92);
+  --text-dark: #1F2937;
+  --text-muted: #6B7280;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  background: linear-gradient(135deg, var(--bg-cream) 0%, #F0FDFA 100%);
+  font-family: 'Fredoka', 'Nunito', sans-serif;
+  color: var(--text-dark);
+}
+
+#header-bar {
+  background: linear-gradient(135deg, var(--primary-coral) 0%, var(--primary-mint) 50%);
+  box-shadow: 0 4px 20px rgba(248, 113, 113, 0.3);
+}
+
+.nav-btn.active {
+  background: rgba(255, 255, 255, 0.25) !important;
+  backdrop-filter: blur(10px);
+  ring: 2px solid rgba(255, 255, 255, 0.5);
+}
+
+.menu-card {
+  background: var(--card-bg);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+}
+
+.menu-card:hover {
+  transform: translateY(-8px) scale(1.03) !important;
+  box-shadow: 0 20px 40px rgba(16, 185, 129, 0.2);
+}
+
+.cat-btn {
+  background: rgba(255, 255, 255, 0.7) !important;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.cat-btn.active {
+  background: linear-gradient(135deg, var(--primary-mint), var(--accent-teal)) !important;
+  box-shadow: 0 4px 15px rgba(16, 185, 129, 0.4);
+}
+
+#btn-submit {
+  background: linear-gradient(135deg, var(--primary-mint), var(--accent-teal));
+  box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
+}
+
+#btn-submit:hover {
+  transform: scale(1.02);
+  box-shadow: 0 6px 20px rgba(16, 185, 129, 0.4);
+}
+
+.profile-header {
+  background: linear-gradient(135deg, var(--primary-coral), var(--accent-cream), var(--primary-mint));
+}
+
+input, select, textarea {
+  background: var(--card-bg);
+  backdrop-filter: blur(10px);
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  border-radius: 1rem;
+  transition: all 0.3s ease;
+}
+
+input:focus, select:focus, textarea:focus {
+  border-color: var(--primary-mint);
+  box-shadow: 0 0 0 4px rgba(16, 185, 129, 0.2);
+  transform: translateY(-1px);
+}
+
+/* Mobile Optimizations */
+@media (max-width: 640px) {
+  #menu-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 1rem;
+  }
+  
+  .menu-card {
+    border-radius: 1.5rem;
+  }
+  
+  #header-bar {
+    padding: 1rem;
+  }
+}
+
+/* Animations */
+@keyframes floatGentle {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-6px) rotate(1deg); }
+}
+
+.anim-float { animation: floatGentle 4s ease-in-out infinite; }
+
+@keyframes cardPop {
+  0% { opacity: 0; transform: scale(0.9) translateY(20px); }
+  100% { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+.menu-card { animation: cardPop 0.6s ease-out forwards; }
+
+.toast-show {
+  background: linear-gradient(135deg, var(--primary-mint), var(--accent-teal));
+  backdrop-filter: blur(20px);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-cream);
+}
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(var(--primary-mint), var(--accent-teal));
+  border-radius: 4px;
+}
+
