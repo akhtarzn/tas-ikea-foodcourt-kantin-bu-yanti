@@ -887,12 +887,12 @@ async function sendOrder() {
   const now    = new Date().toLocaleString('id-ID', { dateStyle:'short', timeStyle:'short' });
 
   // Build WhatsApp message
-  let msg = `🍱 *PESANAN BARU – ${kantin}*\n`;
+  let msg = `*PESANAN BARU – ${kantin}*\n`;
   msg += `━━━━━━━━━━━━━━━━━━\n`;
-  msg += `👤 *Nama:* ${nama}\n`;
-  msg += `🏫 *Kelas:* ${kelas}\n`;
-  msg += `📱 *WA:* ${wa}\n`;
-  msg += `🕐 *Waktu:* ${now}\n`;
+  msg += `*Nama:* ${nama}\n`;
+  msg += `*Kelas:* ${kelas}\n`;
+  msg += `*WA:* ${wa}\n`;
+  msg += `*Waktu:* ${now}\n`;
   msg += `━━━━━━━━━━━━━━━━━━\n`;
   msg += `*Detail Pesanan:*\n`;
   let no = 1;
@@ -900,9 +900,9 @@ async function sendOrder() {
     msg += `${no++}. ${item.name} ×${qty} = Rp ${(item.price*qty).toLocaleString('id-ID')}\n`;
   });
   msg += `━━━━━━━━━━━━━━━━━━\n`;
-  msg += `💰 *Total: Rp ${cartTotal().toLocaleString('id-ID')}*\n`;
-  if (note) msg += `📝 *Catatan:* ${note}\n`;
-  msg += `\n_Dikirim dari Aplikasi Kantin Digital_`;
+  msg += `*Total: Rp ${cartTotal().toLocaleString('id-ID')}*\n`;
+  if (note) msg += `*Catatan:* ${note}\n`;
+  msg += `\n_Sistem Kantin Digital_`;
 
   // Open WhatsApp
   const waNumber = KANTIN_WA_NUMBER.replace(/\D/g,'');
