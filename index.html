@@ -473,12 +473,6 @@
 </div><!-- #app -->
 
 <script>
-// ═══════════════════════════════════════════════
-// CONFIG — ganti nomor WA kantin & URL GAS di sini
-// ═══════════════════════════════════════════════
-const KANTIN_WA_NUMBER = '628123200037'; // format: 62xxx (tanpa +)
-// Google Apps Script Web App URL (opsional – isi jika ingin log ke Spreadsheet)
-const GAS_WEBHOOK_URL  = ''; // contoh: 'https://script.google.com/macros/s/AKfycb.../exec'
 
 // ═══════════════════════════════════════════════
 // STATE
@@ -870,82 +864,6 @@ function closeCheckout(e) {
 // ═══════════════════════════════════════════════
 // SEND ORDER
 // ═══════════════════════════════════════════════
-async function sendOrder() {
-  const nama  = document.getElementById('cust-name').value.trim();
-  const kelas = document.getElementById('cust-kelas').value.trim();
-  const wa    = document.getElementById('cust-wa').value.trim();
-  const note  = document.getElementById('cust-note').value.trim();
-  const errEl = document.getElementById('checkout-error');
-
-  errEl.classList.add('hidden');
-  if (!nama)  { errEl.textContent = 'Nama tidak boleh kosong!'; errEl.classList.remove('hidden'); return; }
-  if (!kelas) { errEl.textContent = 'Kelas tidak boleh kosong!'; errEl.classList.remove('hidden'); return; }
-  if (!wa)    { errEl.textContent = 'No. WhatsApp tidak boleh kosong!'; errEl.classList.remove('hidden'); return; }
-  if (!/^[0-9+\s\-]{8,15}$/.test(wa)) { errEl.textContent = 'Format nomor WA tidak valid!'; errEl.classList.remove('hidden'); return; }
-
-  const kantin = mitraData ? mitraData.nama_mitra : 'Kantin';
-  const now    = new Date().toLocaleString('id-ID', { dateStyle:'short', timeStyle:'short' });
-
-  // Build WhatsApp message
-  let msg = `*PESANAN BARU – ${kantin}*\n`;
-  msg += `━━━━━━━━━━━━━━━━━━\n`;
-  msg += `*Nama:* ${nama}\n`;
-  msg += `*Kelas:* ${kelas}\n`;
-  msg += `*WA:* ${wa}\n`;
-  msg += `*Waktu:* ${now}\n`;
-  msg += `━━━━━━━━━━━━━━━━━━\n`;
-  msg += `*Detail Pesanan:*\n`;
-  let no = 1;
-  cart.forEach(({ item, qty }) => {
-    msg += `${no++}. ${item.name} ×${qty} = Rp ${(item.price*qty).toLocaleString('id-ID')}\n`;
-  });
-  msg += `━━━━━━━━━━━━━━━━━━\n`;
-  msg += `*Total: Rp ${cartTotal().toLocaleString('id-ID')}*\n`;
-  if (note) msg += `*Catatan:* ${note}\n`;
-  msg += `\n_Sistem Kantin Digital_`;
-
-  // Open WhatsApp
-  const waNumber = KANTIN_WA_NUMBER.replace(/\D/g,'');
-  const waURL = `https://wa.me/${waNumber}?text=${encodeURIComponent(msg)}`;
-  window.open(waURL, '_blank');
-
-  // Optional: send to Google Apps Script
-  if (GAS_WEBHOOK_URL) {
-    const payload = {
-      nama, kelas, wa, note,
-      kantin: mitraData ? mitraData.nama_mitra : '',
-      waktu: now,
-      total: cartTotal(),
-      items: [...cart.values()].map(e => ({ nama: e.item.name, qty: e.qty, harga: e.item.price }))
-    };
-    try {
-      await fetch(GAS_WEBHOOK_URL, {
-        method: 'POST',
-        mode: 'no-cors',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(payload)
-      });
-    } catch(err) { console.warn('GAS webhook error:', err); }
-  }
-
-  // Clear & show success
-  cart.clear();
-  updateCartBadge();
-  renderMenuGrid();
-  document.getElementById('checkout-modal').classList.add('hidden');
-  document.getElementById('cust-name').value = '';
-  document.getElementById('cust-kelas').value = '';
-  document.getElementById('cust-wa').value = '';
-  document.getElementById('cust-note').value = '';
-  document.body.style.overflow = '';
-
-  // Show success modal
-  const sModal = document.getElementById('success-modal');
-  const sCard  = sModal.querySelector('.modal-card');
-  sModal.classList.remove('hidden');
-  sCard.classList.remove('modal-card'); void sCard.offsetWidth; sCard.classList.add('modal-card');
-}
-
 function closeSuccessModal() {
   document.getElementById('success-modal').classList.add('hidden');
   document.body.style.overflow = '';
@@ -994,56 +912,6 @@ function renderManageList() {
   });
   lucide.createIcons();
 }
-
-// ═══════════════════════════════════════════════
-// CRUD: ADD / EDIT / DELETE
-// ═══════════════════════════════════════════════
-function addMenu() {
-  hideFormError();
-  const name     = document.getElementById('inp-name').value.trim();
-  const price    = Number(document.getElementById('inp-price').value);
-  const category = document.getElementById('inp-cat').value;
-  const stok     = Number(document.getElementById('inp-stok').value) || 0;
-  const image_url= document.getElementById('inp-image').value.trim();
-  if (!name || !category) { showFormError('Nama dan kategori wajib diisi!'); return; }
-  if (isNaN(price) || price < 0) { showFormError('Harga tidak valid!'); return; }
-  allMenuData.unshift({ __backendId: 'local-'+Date.now(), name, price, category, stok, image_url,
-    mitra_id: mitraData?.mitra_id||'', sekolah: mitraData?.sekolah||'' });
-  renderMenuGrid(); renderManageList(); updateCounts();
-  ['inp-name','inp-price','inp-cat','inp-stok','inp-image'].forEach(id => document.getElementById(id).value = '');
-  showToast('Menu berhasil ditambahkan! 🎉');
-}
-
-function openEdit(id) {
-  const item = allMenuData.find(m => m.__backendId === id);
-  if (!item) return;
-  editingId = id;
-  document.getElementById('edit-name').value  = item.name;
-  document.getElementById('edit-price').value = item.price;
-  document.getElementById('edit-cat').value   = item.category;
-  document.getElementById('edit-stok').value  = item.stok;
-  document.getElementById('edit-image').value = item.image_url || '';
-  document.getElementById('edit-modal').classList.remove('hidden');
-}
-function closeEdit() {
-  editingId = null;
-  document.getElementById('edit-modal').classList.add('hidden');
-}
-function saveEdit() {
-  if (!editingId) return;
-  const item = allMenuData.find(m => m.__backendId === editingId);
-  if (!item) return;
-  item.name      = document.getElementById('edit-name').value.trim()  || item.name;
-  item.price     = Number(document.getElementById('edit-price').value) || item.price;
-  item.category  = document.getElementById('edit-cat').value          || item.category;
-  item.stok      = Number(document.getElementById('edit-stok').value) || 0;
-  item.image_url = document.getElementById('edit-image').value.trim();
-  closeEdit(); renderMenuGrid(); renderManageList();
-  showToast('Menu berhasil diupdate! ✅');
-}
-function startDelete(id)  { deleteConfirmId = id;   renderManageList(); }
-function cancelDelete()   { deleteConfirmId = null;  renderManageList(); }
-function confirmDelete(id){ allMenuData = allMenuData.filter(m => m.__backendId !== id); deleteConfirmId = null; renderMenuGrid(); renderManageList(); updateCounts(); showToast('Menu dihapus!'); }
 
 // ═══════════════════════════════════════════════
 // RENDER: PROFIL
